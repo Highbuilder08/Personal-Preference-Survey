@@ -25,6 +25,10 @@ while True:     # 설문 참여 여부
     menu = int(menu)
 
     if menu == 1:
+        print("==========================")
+        print()
+        print("$ 개인취향 설문조사를 시작합니다.")
+        print()
         birth_data = birth()
         sex_data = sex()
         color_data = color()
@@ -48,13 +52,17 @@ while True:     # 설문 참여 여부
 
     elif menu == 0:
         print("==========================")
+        print()
         print("프로그램을 종료합니다.")
+        print()
         print("==========================")
         print()
         break
 
     else:
         print("==========================")
+        print()
         print("1, 2, 0 중에서 선택하세요.")
+        print()
         print("==========================")
         print()

@@ -66,14 +66,17 @@ def show_statistics():      # 집계
             cur.execute("SELECT COUNT(*) FROM Survey_INFO")     # 테이블 모든 설문 참여자 집계
             total_count = cur.fetchone()[0]         # 설문 참여자 집계 내역 저장
 
-            print("\n===== 설문 집계 현황 =====")
-            print(f"\n전체 응답 수 : {total_count}명")      # 설문 참여자 집계 출력
+            print()
+            print("===== 설문 집계 현황 =====")
+            print()
+            print(f"전체 응답 수 : {total_count}명")      # 설문 참여자 집계 출력
 
             for title, data in stats.items():
                 column = data[0]        # 설문 문항 이름
                 options = data[1]       # 문항 항목 내용
-
-                print(f"\n[{title}]")   # 설문 문항별 항목 차례대로 출력
+                
+                print()
+                print(f"[{title}]")   # 설문 문항별 항목 차례대로 출력
 
                 sql = f"""
                 SELECT {column}, COUNT(*)
@@ -98,6 +101,7 @@ def show_statistics():      # 집계
                     print(f"{value} : {count}명 ({percent:.1f}%)")  # 문항 항목별 인원 확인 + 백분율 분포 집계
 
             print("==========================")
+            print()
 
     finally:
         conn.close()
