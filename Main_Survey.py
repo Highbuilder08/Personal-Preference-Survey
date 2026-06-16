@@ -6,21 +6,32 @@ create_table()
 
 while True:     # 설문 참여 여부
     print("\n===== 개취 설문조사 =====")
+    print()
     print("1. 설문 참여")
     print("2. 집계 현황 보기")
     print("0. 종료")
     print()
 
-    menu = input("선택 : ")
+    menu = input(">> 선택 : ")
+    print()
 
-    if menu == "1":     # 설문 참여 = Func_Info 모듈에서 함수 호출 및 정보 입력
+    if not menu.isdigit():
+        print("==========================")
+        print("숫자만 입력 가능합니다.")
+        print("==========================")
+        print()
+        continue
+    
+    menu = int(menu)
+
+    if menu == 1:
         birth_data = birth()
         sex_data = sex()
         color_data = color()
         rp_data = rp()
         ps_data = ps()
 
-        save_data(      # 입력값들을 튜플로 고정해서 조합
+        save_data(
             birth_data,
             sex_data,
             color_data,
@@ -32,13 +43,18 @@ while True:     # 설문 참여 여부
 
         show_statistics()
 
-    elif menu == "2":       # 설문 집계 출력 = Union_DB 모듈에서 조회
+    elif menu == 2:
         show_statistics()
 
-    elif menu == "0":       # 강제종료
+    elif menu == 0:
+        print("==========================")
         print("프로그램을 종료합니다.")
+        print("==========================")
+        print()
         break
 
     else:
-        print("잘못된 입력입니다. 다시 선택하세요.")
-    print()
+        print("==========================")
+        print("1, 2, 0 중에서 선택하세요.")
+        print("==========================")
+        print()
