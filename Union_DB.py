@@ -4,7 +4,7 @@ import pymysql
 
 def get_connection():   # DB 접속
     return pymysql.connect(
-        host='192.168.32.250',
+        host='192.168.32.39',
         user='testuser',
         password='test1234',
         database='testdb'
